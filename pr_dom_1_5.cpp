@@ -9,7 +9,7 @@ int main () {
       
            
                       
-        if (i%3==0 && i%5==0 && i!=0) {
+        if (i%3==0 && i%5==0 ) {
             
             std::cout<<"HopsasaTralala \n" ;
             i+=1;
@@ -17,14 +17,14 @@ int main () {
             
             }
               
-        if (i%3==0 && i!=0) {
+        if (i%3==0 ) {
             
             std::cout<<"Hopsasa \n";
             i+=1;
             continue ;
             }
                  
-        if (i%5==0 && i!=0) {
+        if (i%5==0) {
             
             std::cout<<"Tralala \n" ;
           
