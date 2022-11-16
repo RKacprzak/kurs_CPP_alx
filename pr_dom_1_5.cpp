@@ -32,10 +32,10 @@ int main () {
             continue;
              } 
              
-             else {
+             
             std::cout<<i<<"\n";  
              i+=1;
-             } 
+            
                
         
             
