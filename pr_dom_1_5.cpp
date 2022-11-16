@@ -32,7 +32,7 @@ int main () {
             continue;
              } 
              
-             if (i%3!=0 || i%5!=0 ||i%3==0 && i%5==0) {
+             else {
             std::cout<<i<<"\n";  
              i+=1;
              } 
