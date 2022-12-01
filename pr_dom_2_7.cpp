@@ -1,20 +1,27 @@
 #include <iostream> 
 
 
-int idx(int* tab, int k){
+void idx(int* tab, int k){
     
     int j=0;
-    int minimum=tab[0];   
+    int minimum=tab[0]; 
+
     for (int i=1; i<k; i+=1){
       
        if (minimum>tab[i]){
            minimum=tab[i];            
-           j=i;
         }
+      
+        }
+        
+        for (int i=0; i<k; i+=1) {
+            
+            if (tab[i]==minimum){
+                std::cout<<i<<"\n";
             }
-             return j;
         }
-   
+            
+}
 
 int main(){
 
@@ -30,6 +37,7 @@ int main(){
        
     }
     
-    std::cout<<"Najmniejsza liczba występuje w elemencie "<<idx(tab,k)<<"\n";
-
+    std::cout<<"Najmniejsza liczba znajduje się pod indeksem:\n";
+    idx(tab, k);
+    
 }
