@@ -3,8 +3,13 @@
 
 int rownanie_kwadratowe(double a, double b, double c, double* rozw1, double* rozw2){
     
+        
     double delta = b*b - 4*a*c;
-        if (delta>0) {
+    if (a==0){
+        *rozw1 = -c/b;
+        return 1;
+    }
+     else if (delta>0) {
             *rozw1 = (-b-sqrt(delta));
             *rozw2 = (-b+sqrt(delta));
             return 2;
@@ -32,6 +37,11 @@ int main(){
     std::cin>>b;
     std::cout<<"Podaj c: \n";
     std::cin>>c;
+    
+   if (a==0){
+       std::cout<<"Równanie jest liniowe \n";
+       
+    }
     
     int ile = rownanie_kwadratowe(a,b,c,&r1,&r2);
         if (ile==2){
