@@ -1,7 +1,7 @@
 #include <iostream>
 
 
-void szyfruj(std::string &wyraz,int &p){ //argumenty są przekazywane funkcji przez referencę
+void szyfruj(std::string &wyraz,int &p){ //argumenty są przekazywane funkcji przez referencję
 
         // tutaj przypisuję znaki stringa tabeli char (dla przykładu metody 
         //- przesunięcie można zrobić od razu na pozycjach liter w stringach);
@@ -28,7 +28,7 @@ void szyfruj(std::string &wyraz,int &p){ //argumenty są przekazywane funkcji pr
                 if(alfabet[j]==wyr_tab[i]){
                     wyr_tab[i]=alfabet[j+p];
                     break;                    //musimy przerwać działanie tej wewn. pętli w przypadku równości 
-                                             //i przypisania przesuniętej litery alfabetu, gdyż w przeciwnym przypadku równości 
+                                             //i przypisania przesuniętej litery alfabetu, gdyż w przeciwnym wypadku równości 
                                              //i przypisania będą się powtarzały, 
                                              //bo alfabet[j+p] będzie w następnym kroku pętli literą alfabet [j];
                     }
@@ -43,11 +43,30 @@ int main(){
     
     int p;
     std::string wyraz;
+    int odp;
+   do {
     std::cout<<"Podaj szyfrowany wyraz(wielkimi literami): \n";
     std::cin>>wyraz;
     std::cout<<"Podaj przesunięcie szyfrujące:\n";
     std::cin>>p;
     std::cout<<"Zaszyfrowany napis:\n";
     szyfruj(wyraz,p);
+    odp=0;
+   
+    Restart:   //Etykieta lokalizująca linię kodu
+            std::cout<<"Czy chcesz szyfrować kolejny wyraz? (1-TAK;2-NIE)\n";
+        
+            std::cin>>odp;
+            if(odp!=1 && odp!=2 ) {
+                std::cout<<"Wprowadź poprawną odpowiedź \n";
+                std::cin.clear();              // czyszczenie std::cin ze stanu "FAIL" 
+                                              //po wprowadzeniu zmiennej innego typu, bez tego
+                                             //wywołujemy nieskończoną pętlę przez goto lub alternatywnie przez pętlę while
+                std::cin.ignore(1000,'\n');
+                goto Restart;
+            }
+            
+   }  while (odp==1);
+       
 
 }
